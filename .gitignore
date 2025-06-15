@@ -1,0 +1,19 @@
+# Ignorar arquivos de bytecode Python
+__pycache__/
+*.py[cod]
+
+# Ignorar diretórios de ambiente virtual
+venv/
+
+# Ignorar arquivos de sistema macOS
+.DS_Store
+
+# Ignorar arquivos de configuração do IDE
+.idea/
+*.swp
+
+# Ignorar arquivos de log
+*.log
+
+# Ignorar arquivos de ambiente
+.env
