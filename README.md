@@ -2,6 +2,9 @@
 
 Media Audio Extractor é uma aplicação GTK que permite converter e extrair áudio de arquivos de vídeo e áudio.
 
+<img alt="media-audio-extractor.jpg)" src="media-audio-extractor.jpg">
+
+
 ## Pré-requisitos
 
 - Python 3.x
