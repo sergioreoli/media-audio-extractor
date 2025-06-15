@@ -14,7 +14,7 @@ class ExtrairAudioApp(Gtk.Application):
     def on_activate(self, app):
         self.janela = Gtk.ApplicationWindow(application=app)
         self.janela.set_title("Media Audio Extractor | Converter/Extrair Áudio")
-        self.janela.set_default_size(650, 340)
+        self.janela.set_default_size(650, 370)  # Ajuste a altura para acomodar o rodapé
         self.janela.set_resizable(False)
         self.janela.set_border_width(20)
         self.janela.set_position(Gtk.WindowPosition.CENTER)
@@ -50,8 +50,8 @@ class ExtrairAudioApp(Gtk.Application):
         output_info_box = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
 
         self.entry_nome_saida = Gtk.Entry()
-        self.entry_nome_saida.set_placeholder_text("nome-arquivo")
-        self.entry_nome_saida.set_text("nome-arquivo")
+        self.entry_nome_saida.set_placeholder_text("arquivo-audio")
+        self.entry_nome_saida.set_text("arquivo-audio")
         self.entry_nome_saida.set_hexpand(True)
         output_info_box.pack_start(self.entry_nome_saida, True, True, 0)
 
@@ -97,6 +97,13 @@ class ExtrairAudioApp(Gtk.Application):
         self.lbl_pid = Gtk.Label(label="PID: Aguardando")
         self.lbl_pid.set_halign(Gtk.Align.START)
         main_box.pack_start(self.lbl_pid, False, False, 0)
+
+        # Footer
+        footer_box = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=0)
+        lbl_footer = Gtk.Label(label="Donate PayPal: Sergio ReOli (sergioreoli@hotmail.com)")
+        lbl_footer.set_halign(Gtk.Align.START)
+        footer_box.pack_start(lbl_footer, False, False, 0)
+        main_box.pack_end(footer_box, False, False, 0)
 
         self.janela.show_all()
 
@@ -164,7 +171,7 @@ class ExtrairAudioApp(Gtk.Application):
 
             if processo.returncode == 0:
                 GLib.idle_add(self.lbl_status.set_text,
-                              f"Status: Arquivo convertido/extraído para {output_path}")
+                              f"Status: Arquivo convertido/extraído para: {output_path}")
                 GLib.idle_add(self.mostrar_info, "Concluído", "Conversão/Extração concluída com sucesso!")
             else:
                 GLib.idle_add(self.lbl_status.set_text, "Status: Erro na conversão/extração")
@@ -218,5 +225,3 @@ class ExtrairAudioApp(Gtk.Application):
 
 app = ExtrairAudioApp()
 app.run(None)
-
-
